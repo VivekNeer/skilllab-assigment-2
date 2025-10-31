@@ -1,9 +1,18 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
 const port = process.env.PORT || 3001;
+
+// CORS Configuration - Allow requests from frontend
+app.use(cors({
+  origin: process.env.NODE_ENV === 'production' 
+    ? process.env.FRONTEND_URL || '*'
+    : ['http://localhost:3000', 'http://localhost:3001'],
+  credentials: true
+}));
 
 // Middleware to parse JSON request bodies
 app.use(express.json());
