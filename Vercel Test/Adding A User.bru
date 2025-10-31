@@ -1,0 +1,25 @@
+meta {
+  name: Adding A User
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://skilllab-assigment-2.vercel.app/api/bookings
+  body: json
+  auth: inherit
+}
+
+body:json {
+      {
+        "name": "Forreal",
+        "email": "aravind@example.com",
+        "event": "Synergia",
+        "ticketType": "VIP"
+      }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
